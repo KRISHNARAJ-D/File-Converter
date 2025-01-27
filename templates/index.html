@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        .card {
+            backdrop-filter: blur(16px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4e54c8;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .custom-file-upload {
+            border: 2px dashed #4e54c8;
+            border-radius: 1rem;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .custom-file-upload:hover {
+            background: rgba(78, 84, 200, 0.1);
+        }
+        .feature-section {
+            background-color: #f9fafb;
+            padding: 50px 0;
+        }
+        .feature-header {
+            font-size: 2.5rem;
+            color: #4e54c8;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .feature-card {
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 1rem;
+            text-align: center;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="navbar fixed w-full px-6 py-4 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white text-2xl font-bold">FileConverter Pro</a>
+            <div class="space-x-6">
+                <a href="/" class="text-white hover:text-indigo-200 transition">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 pt-24 pb-12 text-center">
+        <h1 class="text-5xl font-bold text-white mb-6 animate__animated animate__fadeInDown">
+            Transform Your Files Effortlessly
+        </h1>
+        <p class="text-xl text-indigo-100 animate__animated animate__fadeIn animate__delay-1s">
+            Professional file conversion tools at your fingertips
+        </p>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-6">File Conversion Tools</h2>
+            <p class="text-xl text-indigo-100">Explore our powerful suite of tools designed for quick and easy file conversions</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <a href="/pdf_merge" class="card rounded-2xl p-8 text-center">
+                <i class="fas fa-file-pdf tool-icon"></i>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Merge PDF</h3>
+                <p class="text-gray-600">Combine multiple PDF files into a single document seamlessly.</p>
+            </a>
+
+            <a href="/pdf_to_img" class="card rounded-2xl p-8 text-center">
+                <i class="fas fa-images tool-icon"></i>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-3">PDF to Images</h3>
+                <p class="text-gray-600">Extract high-quality images from your PDF documents.</p>
+            </a>
+
+            <a href="/word_to_pdf" class="card rounded-2xl p-8 text-center">
+                <i class="fas fa-file-word tool-icon"></i>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Word to PDF</h3>
+                <p class="text-gray-600">Convert Word documents to PDF format with perfect formatting.</p>
+            </a>
+
+            <a href="/img_to_pdf" class="card rounded-2xl p-8 text-center">
+                <i class="fas fa-file-image tool-icon"></i>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Images to PDF</h3>
+                <p class="text-gray-600">Transform your images into professional PDF documents.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="feature-section">
+        <div class="container mx-auto text-center">
+            <h2 class="feature-header">Why Choose Us?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <i class="fas fa-cloud-upload-alt text-4xl text-indigo-600 mb-4"></i>
+                    <h3>Cloud-Based Convenience</h3>
+                    <p class="text-gray-600">Access and convert files from anywhere, without the need for installations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-lock text-4xl text-indigo-600 mb-4"></i>
+                    <h3>Secure Conversions</h3>
+                    <p class="text-gray-600">Your privacy is important to us. We ensure your files are handled securely.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-speedometer text-4xl text-indigo-600 mb-4"></i>
+                    <h3>Fast Processing</h3>
+                    <p class="text-gray-600">Experience quick file conversions with our powerful backend systems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

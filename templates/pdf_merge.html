@@ -1,0 +1,80 @@
+<!-- pdf_merge.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDFs - FileConverter Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="antialiased bg-gradient-to-br from-indigo-600 to-blue-400">
+    <div class="blur-background"></div>
+    
+    <div class="page-container max-w-4xl mx-auto p-8">
+        <nav class="bg-white/10 backdrop-blur-md border-b border-white/20 rounded-lg mb-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <a href="/" class="text-white text-2xl font-bold">FileConverter Pro</a>
+                    <a href="/" class="text-white hover:text-indigo-200 transition px-4 py-2 rounded-md text-lg font-medium bg-indigo-500 shadow-lg">Back to Home</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="content-area bg-white rounded-xl shadow-lg p-8">
+            <div class="conversion-box text-center">
+                <i class="fas fa-file-pdf text-6xl text-indigo-600"></i>
+                <h1 class="text-4xl font-bold text-gray-800 mt-4">Merge PDF Files</h1>
+                <p class="text-gray-600 mt-2 text-lg">Combine multiple PDF documents into a single file</p>
+            </div>
+
+            <form action="/merge_pdf" method="post" enctype="multipart/form-data" class="mt-6 space-y-6">
+                <label class="custom-file-upload block text-center border-2 border-dashed border-indigo-400 p-6 rounded-lg cursor-pointer hover:bg-indigo-50">
+                    <input type="file" name="pdf_files" multiple required accept=".pdf" class="hidden">
+                    <i class="fas fa-cloud-upload-alt text-5xl text-indigo-600 mb-4"></i>
+                    <p class="text-xl font-medium text-gray-700">Drop your PDF files here</p>
+                    <p class="text-sm text-gray-500 mt-2">or click to browse</p>
+                </label>
+
+                <div class="preview-area hidden mt-4 rounded-lg border border-gray-200 p-4 bg-gray-50">
+                    <!-- Files will be listed here -->
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="convert-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-lg shadow-md">
+                        Merge PDFs
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-8 text-center text-sm text-gray-600">
+                <p>Maximum file size: 100MB per file</p>
+                <p class="mt-1">Supported format: PDF</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const fileInput = document.querySelector('input[type="file"]');
+        const previewArea = document.querySelector('.preview-area');
+
+        fileInput.addEventListener('change', function(e) {
+            previewArea.innerHTML = '';
+            previewArea.classList.remove('hidden');
+
+            Array.from(this.files).forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center p-3 bg-indigo-50 rounded mb-2 shadow-sm';
+                fileItem.innerHTML = `
+                    <span class="text-indigo-600 mr-3">${index + 1}</span>
+                    <span class="flex-1 truncate text-gray-700">${file.name}</span>
+                    <span class="text-gray-500 text-sm">${(file.size / (1024 * 1024)).toFixed(2)} MB</span>
+                `;
+                previewArea.appendChild(fileItem);
+            });
+        });
+    </script>
+</body>
+</html>
